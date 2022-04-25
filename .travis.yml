@@ -1,0 +1,14 @@
+sudo: required
+
+language: node_js
+
+services:
+  - docker
+
+
+before_install: 
+  - docker build -t horusen/web -f Dockerfile.dev .
+  
+
+script: 
+  - docker run horusen/web npm run test
